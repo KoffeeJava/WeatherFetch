@@ -22,12 +22,14 @@ if not os.path.exists(os.path.expanduser("~/.local/share/Wfetch")):
     os.makedirs(os.path.expanduser("~/.local/share/Wfetch"))
     
 if arg == "":
-    print(f"\033[1m{wf_green}Wfetch 1.0 KoffeeWare 2025{wf_green.OFF}")
+    print(f"\033[1m{wf_green}WeatherFetch KoffeeWare 2025{wf_green.OFF}")
     try:
         with open(os.path.expanduser("~/.local/share/Wfetch/config.cfg")) as f:
             content = f.readlines()
             api_key = content[0].rstrip()
-            city = content[1]
+            city = content[1].rstrip()
+            unit = content[2]
+            print(unit)
     except:
         print(f"{error_red}the config file was not found. To fix,")
 
@@ -39,12 +41,12 @@ if arg == "":
     if response.status_code == 200:
         data = response.json()
         tem = data['main']['temp']
-        temp = math.floor((tem - 273.15) * 9 / 5 + 32)
+        tempc = math.floor((tem - 273.15) * 9 / 5 + 32)
+        tempm = math.floor((tempc - 32) / 1.8)
         desc = data['weather'][0]['description']
         press = data['main']['pressure']
         wind = data['wind']['speed']
         humidity = data['main']['humidity']
-
 
         if desc == "clear sky":
             icons.clear()
@@ -67,12 +69,22 @@ if arg == "":
         elif desc == "overcast clouds":
             icons.occlouds()
 
-        if temp > 85:
-            print(f"Live Temperature: \033[1m{hot_red}{temp}°F{hot_red.OFF}")
-        elif temp in range(70, 84):
-            print(f"Live Temperature: \033[1m{warm_orange}{temp}°F{warm_orange.OFF}")
-        elif temp < 70:
-            print(f"Live Temperature: \033[1m{cold_blue}{temp}°F{cold_blue.OFF}")
+
+        if unit == "c:":
+            if tempc > 85:
+                print(f"Live Temperature: \033[1m{hot_red}{tempc}°F{hot_red.OFF}")
+            elif tempc in range(70, 84):
+                print(f"Live Temperature: \033[1m{warm_orange}{tempc}°F{warm_orange.OFF}")
+            elif tempc < 70:
+                print(f"Live Temperature: \033[1m{cold_blue}{tempc}°F{cold_blue.OFF}")
+        else:
+            if tempm > 29:
+                print(f"Live Temperature: \033[1m{hot_red}{tempm}°F{hot_red.OFF}")
+            elif tempc in range(21, 28):
+                print(f"Live Temperature: \033[1m{warm_orange}{tempm}°F{warm_orange.OFF}")
+            elif tempc < 21:
+                print(f"Live Temperature: \033[1m{cold_blue}{tempm}°F{cold_blue.OFF}")
+
         print(f"Air Pressure: {press}")
         print(f"Wind Speed: {wind} Mph")
         print(f"Humidity: {humidity}%")
@@ -86,14 +98,19 @@ if arg == "--help" or arg == "-h":
     print("-s           Setup Wfetch.")
     print("-i           Install Wfetch to usr/bin/")
     print("-u           Uninstall Wfetch. Required to update Wfetch!")
+    print("-v           Show version of Wfetch.")
 
 if arg == "-s":
+    print("Welcome to the WeatherFetch Setup.")
     api_key = input("Please enter your API key from openweathermap.org: ")
     city = input("Please enter your city name: ")
+    unit = input("Customary or metric? (c/m): ")
 
     with open(os.path.expanduser("~/.local/share/Wfetch/config.cfg"), "w") as f:
         f.write(api_key)
         f.write(f"\n{city}")
+        f.write(f"\n{unit}")
+
 
 if arg == "-i":
 
@@ -104,7 +121,7 @@ if arg == "-i":
 
     os.system("chmod +x /usr/bin/Wfetch")
 
-    print(f"{wf_green}Install finnished. Enjoy!{wf_green.OFF}")
+    print(f"{wf_green}Install finished. Enjoy!{wf_green.OFF}")
 
 if arg == "-u":
     if os.geteuid() != 0:
@@ -112,4 +129,7 @@ if arg == "-u":
         sys.exit(1)
     os.system("rm /usr/bin/Wfetch")
     os.system("rmdir ~/.local/share/Wfetch/")
-    print(f"\033[1m{wf_green}Uninstalation finnished! If updating run sudo ./Wfetch -i ON THE NEW FILE{wf_green.OFF}")
+    print(f"\033[1m{wf_green}Uninstallation finnished! If updating run sudo ./Wfetch -i ON THE NEW FILE{wf_green.OFF}")
+
+if arg == "-v":
+    print("v1.1 Pre-release")

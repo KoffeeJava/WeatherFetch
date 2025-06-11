@@ -1,14 +1,8 @@
-
-
 from colorist import ColorHex
-
 orange = ColorHex("#ffc83d")
 
 def clear():
-    print(f"""{orange}                              
-                              
-                              
-                              
+    print(f"""{orange}                     
            3ÏÏÏÏ3ÏÏ           
          ÏÏÏÏÏÏÏÌÌÌÏÏ         
         3ÏÌÏÏÏÏÏÏÌÏÏÏÏ        
@@ -17,16 +11,10 @@ def clear():
         ÏÏÏÌÏÏÏÏÏÌÏÏÏÏ        
          ÏÌÌÏÌÏÏÌÏÏÏÌ±        
            Ì3ÏÏÏÏÏÏ3          
-                              
-                              
-                              
                               {orange.OFF}""")
 
 def fclouds():
-    print(f"""{orange}                              
-                              
-                              
-                              
+    print(f"""{orange}          
                   óóL         
            …’˜¨LÏÏÏÌÏÏÌÏ      
          ˜˜˜˜˜˜’CÏÌÏÏÌÏÏÏ     
@@ -35,34 +23,20 @@ def fclouds():
      ˆ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜ˆ>      
      ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜      
        ˆ˜˜ˆ˜˜˜˜˜ˆ˜˜ˆ˜˜‚       
-                              
-                              
-                              
                               {orange.OFF}""")
 
 def sclouds():
-    print(f"""{orange}                              
-                              
-                              
-                              
-                              
+    print(f"""{orange}         
            ˆ˜˜˜ˆ              
           ˜˜˜˜˜˜˜˜            
         …˜¸˜˜˜˜˜˜˜˜˜˜         
       ˆ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜’      
       ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜      
        ˆ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜ˆ      
-                              
-                              
-                              
-                              
                               {orange.OFF}""")
 
 def bclouds():
-    print(f"""{orange}                              
-                              
-                              
-                              
+    print(f"""{orange}      
                 ýý            
            ˆ‘ ÙÖÖÖÖè          
          ˜˜˜˜’‚üÞÖÞÖÖÞÞ       
@@ -71,17 +45,11 @@ def bclouds():
      ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜‚§ÖÓ     
      ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜’       
       ’˜˜˜˜˜˜˜˜˜˜˜˜ˆ’¸        
-                              
-                              
-                              
                               {orange.OFF}""")
 
 
 def occlouds():
-    print(f"""{orange}                              
-
-
-
+    print(f"""{orange}
                 ýý            
            ˆ‘ ÙÖÖÖÖè          
          ˜˜˜˜’‚üÞÖÞÖÖÞÞ       
@@ -90,16 +58,10 @@ def occlouds():
      ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜‚§ÖÓ     
      ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜’       
       ’˜˜˜˜˜˜˜˜˜˜˜˜ˆ’¸        
-
-
-
-                              {orange.OFF}""")
+                           {orange.OFF}""")
 
 def srain():
-    print(f"""{orange}                              
-                              
-                              
-                              
+    print(f"""{orange}      
               ÓÞÖÖÞ           
          ‚˜˜˜’°šÞÖÞÖÞè        
          ’˜˜˜˜˜‘’;4ÞÞÞÞý      
@@ -108,16 +70,10 @@ def srain():
         ˜’´D¨˜’¸¸’’˜          
           ÓèÓÓ è              
             Ó ÞÞ              
-                              
-                              
-                              
                               {orange.OFF}""")
 
 def rain():
-    print(f"""{orange}                              
-                              
-                              
-                              
+    print(f"""{orange}     
              ’ ÏÏÏÌÏÌÏ        
           ˜ˆ˜˜˜^±ÌÏÏÏÏÏ       
          ˜˜˜˜˜˜˜‚˜–ÍÏÏÏ       
@@ -126,15 +82,10 @@ def rain():
         ´˜˜±4˜’˜‚ˆ˜˜˜         
            Þ Öè Þ             
             èÓ Þ              
-                              
-                              
-                              
                               {orange.OFF}""")
 
 def tstorm():
-    print(f"""{orange}                              
-                              
-                              
+    print(f"""{orange}       
                 Ùd            
            ˜˜`èÖÞÖÖÖ          
          ˆ˜˜˜’‹§ÞÖÞÞÖÞÞ       
@@ -144,22 +95,10 @@ def tstorm():
      ˆ˜˜˜˜?L×˜˜˜˜˜˜˜˜˜        
          ±3Ï3                 
          LÏ±                  
-                              
-                              
-                              
                               {orange.OFF}""")
 
 def snow():
-    print(f"""{orange}                                                            
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            
+    print(f"""{orange}                            
                              ##                             
                        # ########## #                       
                       ### ######## ###                      
@@ -174,28 +113,10 @@ def snow():
                       ################                      
                          ### ######                         
                              ##                             
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            
                                                             {orange.OFF}""")
 
 def mist():
-    print(f"""{orange}                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
+    print(f"""{orange}                       
                         èÓèèèèèèèÓÓ                           
                         ÖÖÞÞÞÞÞÞÞÖÞ                           
                  èÓÓÞÓÓÓÓÓÞÓÓÓÓÓÓÓÓdè                         
@@ -208,14 +129,4 @@ def mist():
                    ÖÖÖÖÖÖÖÖÖÖÞÖÖÖÖÖÖÖÖÞÞÞÖÖÞ                  
                                                               
                        åÖÖÖÖÖÖÞÖÖÖÖÖÖÖÞ                       
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              {orange.OFF}""")
+                                                            {orange.OFF}""")
