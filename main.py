@@ -17,11 +17,12 @@ error_red = ColorHex("#ff0000")
 hot_red = ColorHex("#ff3d3d")
 warm_orange = ColorHex("#ffc83d")
 cold_blue = ColorHex("#3f42ff")
+debug_orange = ColorHex("#ffbc21")
 
 if not os.path.exists(os.path.expanduser("~/.local/share/Wfetch")):
     os.makedirs(os.path.expanduser("~/.local/share/Wfetch"))
     
-if arg == "":
+if arg == "" or arg == "--debug":
     print(f"\033[1m{wf_green}WeatherFetch KoffeeWare 2025{wf_green.OFF}")
     try:
         with open(os.path.expanduser("~/.local/share/Wfetch/config.cfg")) as f:
@@ -29,17 +30,28 @@ if arg == "":
             api_key = content[0].rstrip()
             city = content[1].rstrip()
             unit = content[2]
-            print(unit)
+
+            if arg == "--debug":
+                print(f"\033[1m{debug_orange}Read API key as: {api_key}{debug_orange.OFF}")
+                print(f"\033[1m{debug_orange}Read city as: {city}{debug_orange.OFF}")
+                print(f"\033[1m{debug_orange}Read unit of measure as: {unit} (c for customary and m for metric){debug_orange.OFF}")
     except:
-        print(f"{error_red}the config file was not found. To fix,")
+        print(f"{error_red}the config file was not found! Please reinstall Wfetch")
 
 
     fetch_url = f"http://api.openweathermap.org/data/2.5/weather?appid={api_key}&q={city}"
+
+    if arg == "--debug":
+        print(f"\033[1m{debug_orange}Full fetch url: {fetch_url}{debug_orange.OFF}")
 
     response = requests.get(fetch_url)
 
     if response.status_code == 200:
         data = response.json()
+
+        if arg == "--debug":
+            print(f"\033[1m{debug_orange}Fetched: {data}{debug_orange.OFF}")
+
         tem = data['main']['temp']
         temp = math.floor((tem - 273.15) * 9 / 5 + 32)
         tempm = math.floor((temp - 32) / 1.8)
@@ -48,7 +60,6 @@ if arg == "":
         wind = data['wind']['speed']
         humidity = data['main']['humidity']
         id = data['weather'][0]['id']
-        print(id)
 
         chk_id.id_to_icon(id)
 
@@ -81,6 +92,7 @@ if arg == "--help" or arg == "-h":
     print("-i           Install Wfetch to usr/bin/")
     print("-u           Uninstall Wfetch. Required to update Wfetch!")
     print("-v           Show version of Wfetch.")
+    print("--debug      Debug features. Good for seeing of config file is being read correctly.")
 
 if arg == "-s":
     print("Welcome to the WeatherFetch Setup.")
