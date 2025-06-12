@@ -15,7 +15,7 @@ To fully update, just install the latest WeatherFetch executable and follow the 
 
 # To do
 + ~~Add ASCII icons~~
-+ Make library for descriptions
-+ Add M-Metric units 🤢
++ ~~Make library for description~~
++ ~~Add M-Metric units 🤢~~
 + Make a Windows version
 
