@@ -41,8 +41,8 @@ if arg == "":
     if response.status_code == 200:
         data = response.json()
         tem = data['main']['temp']
-        tempc = math.floor((tem - 273.15) * 9 / 5 + 32)
-        tempm = math.floor((tempc - 32) / 1.8)
+        temp = math.floor((tem - 273.15) * 9 / 5 + 32)
+        tempm = math.floor((temp - 32) / 1.8)
         desc = data['weather'][0]['description']
         press = data['main']['pressure']
         wind = data['wind']['speed']
@@ -70,19 +70,19 @@ if arg == "":
             icons.occlouds()
 
 
-        if unit == "c:":
-            if tempc > 85:
-                print(f"Live Temperature: \033[1m{hot_red}{tempc}°F{hot_red.OFF}")
-            elif tempc in range(70, 84):
-                print(f"Live Temperature: \033[1m{warm_orange}{tempc}°F{warm_orange.OFF}")
-            elif tempc < 70:
-                print(f"Live Temperature: \033[1m{cold_blue}{tempc}°F{cold_blue.OFF}")
-        else:
+        if unit == "c":
+            if temp > 85:
+                print(f"Live Temperature: \033[1m{hot_red}{temp}°F{hot_red.OFF}")
+            elif temp in range(70, 84):
+                print(f"Live Temperature: \033[1m{warm_orange}{temp}°F{warm_orange.OFF}")
+            elif temp < 70:
+                print(f"Live Temperature: \033[1m{cold_blue}{temp}°F{cold_blue.OFF}")
+        elif unit == "m":
             if tempm > 29:
                 print(f"Live Temperature: \033[1m{hot_red}{tempm}°F{hot_red.OFF}")
-            elif tempc in range(21, 28):
+            elif tempm in range(21, 28):
                 print(f"Live Temperature: \033[1m{warm_orange}{tempm}°F{warm_orange.OFF}")
-            elif tempc < 21:
+            elif tempm < 21:
                 print(f"Live Temperature: \033[1m{cold_blue}{tempm}°F{cold_blue.OFF}")
 
         print(f"Air Pressure: {press}")
