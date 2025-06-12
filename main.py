@@ -3,7 +3,7 @@ import os
 import math
 import shutil
 import readline
-import chk_desc
+import chk_id
 import requests
 from colorist import ColorHex
 
@@ -47,9 +47,10 @@ if arg == "":
         press = data['main']['pressure']
         wind = data['wind']['speed']
         humidity = data['main']['humidity']
+        id = data['weather'][0]['id']
+        print(id)
 
-        chk_desc.check_desc(desc)
-
+        chk_id.id_to_icon(id)
 
         if unit == "c":
             if temp > 85:
