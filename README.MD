@@ -13,6 +13,13 @@ Open your terminal and type `sudo Wfetch -u` This will remove everything! (excep
 
 To fully update, just install the latest WeatherFetch executable and follow the installation instructions.
 
+# How do I get an OpenWeather API key?
+
+OpenWeather is a free and easy API for weather. To get your API key,
+first go to the [OpenWeather Website](https://openweathermap.org/). and sign up for an account.
+When you finished making your account, click your profile and click "My API keys" where it will show you
+an API key for you!
+
 # To do
 + ~~Add ASCII icons~~
 + ~~Make library for description~~
