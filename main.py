@@ -1,11 +1,13 @@
-import sys
-import os
 import math
-import shutil
+import os
 import readline
-import chk_id
+import shutil
+import sys
+
 import requests
 from colorist import ColorHex
+
+import chk_id
 
 try:
     arg = sys.argv[1]
@@ -21,7 +23,7 @@ debug_orange = ColorHex("#ffbc21")
 
 if not os.path.exists(os.path.expanduser("~/.local/share/Wfetch")):
     os.makedirs(os.path.expanduser("~/.local/share/Wfetch"))
-    
+
 if arg == "" or arg == "--debug":
     print(f"\033[1m{wf_orange}WeatherFetch KoffeeWare 2025{wf_orange.OFF}")
     try:
@@ -34,10 +36,10 @@ if arg == "" or arg == "--debug":
             if arg == "--debug":
                 print(f"\033[1m{debug_orange}Read API key as: {api_key}{debug_orange.OFF}")
                 print(f"\033[1m{debug_orange}Read city as: {city}{debug_orange.OFF}")
-                print(f"\033[1m{debug_orange}Read unit of measure as: {unit} (c for customary and m for metric){debug_orange.OFF}")
+                print(
+                    f"\033[1m{debug_orange}Read unit of measure as: {unit} (c for customary and m for metric){debug_orange.OFF}")
     except:
         print(f"{error_red}the config file was not found! Please reinstall Wfetch")
-
 
     fetch_url = f"http://api.openweathermap.org/data/2.5/weather?appid={api_key}&q={city}"
 
@@ -131,7 +133,6 @@ if arg == "-s":
         f.write(f"\n{city}")
         f.write(f"\n{unit}")
 
-
 if arg == "-i":
 
     if os.geteuid() != 0:
@@ -149,7 +150,8 @@ if arg == "-u":
         sys.exit(1)
     os.system("rm /usr/bin/Wfetch")
     os.system("rmdir ~/.local/share/Wfetch/")
-    print(f"\033[1m{wf_orange}Uninstallation finnished! If updating run sudo ./Wfetch -i ON THE NEW FILE{wf_orange.OFF}")
+    print(
+        f"\033[1m{wf_orange}Uninstallation finnished! If updating run sudo ./Wfetch -i ON THE NEW FILE{wf_orange.OFF}")
 
 if arg == "-v":
-    print("v1.1 Pre-release")
+    print("v1.1 Full Release")
