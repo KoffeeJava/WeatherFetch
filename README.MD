@@ -3,13 +3,11 @@ WeatherFetch is an application that shows the live temperature, air pressure, wi
 
 # How to install and setup
 
-Install the Wfetch file from the release page and then run `sudo ./Wfetch -i` then everything will be installed and will be able to be run with `Wfetch`
-
-To setup, run `Wfetch -s` and enter your openweather api key and your city.
+I also now made installing stuff way better! just run the install file and then you are good to go!
 
 # How to uninstall/update
 
-Open your terminal and type `sudo Wfetch -u` This will remove everything! (except the config.cfg file)
+Open your terminal and type `sudo Wfetch -u` This will remove everything! ~~(except the config.cfg file)~~
 
 To fully update, just install the latest WeatherFetch executable and follow the installation instructions.
 

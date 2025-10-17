@@ -1,6 +1,7 @@
+# Main file of wfetch. You can kinda read it.
+
 import math
 import os
-import readline
 import shutil
 import sys
 
@@ -39,7 +40,8 @@ if arg == "" or arg == "--debug":
                 print(
                     f"\033[1m{debug_orange}Read unit of measure as: {unit} (c for customary and m for metric){debug_orange.OFF}")
     except:
-        print(f"{error_red}the config file was not found! Please reinstall Wfetch")
+        print(f"\033[1m{error_red}the config file was not found! Please run wfetch -s")
+        sys.exit(1)
 
     fetch_url = f"http://api.openweathermap.org/data/2.5/weather?appid={api_key}&q={city}"
 
@@ -97,7 +99,6 @@ if arg == "" or arg == "--debug":
             elif ftempm < 21:
                 print(f"Feels like: \033[1m{cold_blue}{ftempm}°C{cold_blue.OFF}")
 
-        # print(f"Air Pressure: {press}") May remove soon!
         if unit == "c":
             if math.floor(wind / 1.609344) in range(1, 12):
                 print(f"Wind Speed: \033[1m{cold_blue}{math.floor(wind / 1.609344)} Mph{cold_blue.OFF}")
@@ -111,7 +112,7 @@ if arg == "" or arg == "--debug":
         print(f"Humidity: {humidity}%")
         print(f"Weather Description: \033[1m{wf_orange}{desc}{wf_orange.OFF}")
     else:
-        print('Error fetching weather data')
+        print('Error fetching weather data!')
 if arg == "--help" or arg == "-h":
     print(f"\033[1m{wf_orange}Wfetch 2025 KoffeeWare{wf_orange.OFF}")
     print("Usage: Wfetch [options]\n")
@@ -133,25 +134,5 @@ if arg == "-s":
         f.write(f"\n{city}")
         f.write(f"\n{unit}")
 
-if arg == "-i":
-
-    if os.geteuid() != 0:
-        print(f"\033[1m{error_red}You must be in root to Install Wfetch!{error_red.OFF}")
-        sys.exit(1)
-    shutil.copyfile("Wfetch", os.path.expanduser("/usr/bin/Wfetch"))
-
-    os.system("chmod +x /usr/bin/Wfetch")
-
-    print(f"{wf_orange}Install finished. Enjoy!{wf_orange.OFF}")
-
-if arg == "-u":
-    if os.geteuid() != 0:
-        print(f"\033[1m{error_red}You must be in root to Install Wfetch!{error_red.OFF}")
-        sys.exit(1)
-    os.system("rm /usr/bin/Wfetch")
-    os.system("rmdir ~/.local/share/Wfetch/")
-    print(
-        f"\033[1m{wf_orange}Uninstallation finnished! If updating run sudo ./Wfetch -i ON THE NEW FILE{wf_orange.OFF}")
-
 if arg == "-v":
-    print("v1.1 Full Release")
+    print("v1.2 Full Release")
