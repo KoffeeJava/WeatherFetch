@@ -118,8 +118,6 @@ if arg == "--help" or arg == "-h":
     print("Usage: Wfetch [options]\n")
     print("-h           This help page.")
     print("-s           Setup Wfetch.")
-    print("-i           Install Wfetch to usr/bin/")
-    print("-u           Uninstall Wfetch. Required to update Wfetch!")
     print("-v           Show version of Wfetch.")
     print("--debug      Debug features. Good for seeing of config file is being read correctly.")
 
