@@ -22,13 +22,10 @@ warm_orange = ColorHex("#ffc83d")
 cold_blue = ColorHex("#3f42ff")
 debug_orange = ColorHex("#ffbc21")
 
-if not os.path.exists(os.path.expanduser("~/.local/share/Wfetch")):
-    os.makedirs(os.path.expanduser("~/.local/share/Wfetch"))
-
 if arg == "" or arg == "--debug":
-    print(f"\033[1m{wf_orange}WeatherFetch KoffeeWare 2025{wf_orange.OFF}")
+    print(f"\033[1m{wf_orange}WeatherFetch Portible Edition KoffeeWare 2025 {wf_orange.OFF}")
     try:
-        with open(os.path.expanduser("~/.local/share/Wfetch/config.cfg")) as f:
+        with open(os.path.expanduser("config.cfg")) as f:
             content = f.readlines()
             api_key = content[0].rstrip()
             city = content[1].rstrip()
@@ -118,8 +115,6 @@ if arg == "--help" or arg == "-h":
     print("Usage: Wfetch [options]\n")
     print("-h           This help page.")
     print("-s           Setup Wfetch.")
-    print("-i           Install Wfetch to usr/bin/")
-    print("-u           Uninstall Wfetch. Required to update Wfetch!")
     print("-v           Show version of Wfetch.")
     print("--debug      Debug features. Good for seeing of config file is being read correctly.")
 
@@ -129,10 +124,10 @@ if arg == "-s":
     city = input("Please enter your city name: ")
     unit = input("Customary or metric? (c/m): ")
 
-    with open(os.path.expanduser("~/.local/share/Wfetch/config.cfg"), "w") as f:
+    with open(os.path.expanduser("config.cfg"), "w") as f:
         f.write(api_key)
         f.write(f"\n{city}")
         f.write(f"\n{unit}")
 
 if arg == "-v":
-    print("v1.2 Full Release")
+    print("v1.2 Full Release Portible Edition")
