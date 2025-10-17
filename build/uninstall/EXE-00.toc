@@ -164,7 +164,7 @@
  [],
  False,
  False,
- 1760665028,
+ 1760673748,
  [('run',
    '/home/koffeejava/PycharmProjects/WeatherFetch/.venv/lib/python3.13/site-packages/PyInstaller/bootloader/Linux-64bit-intel/run',
    'EXECUTABLE')],
