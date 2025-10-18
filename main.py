@@ -138,4 +138,4 @@ if arg == "--show-icons":
     print("finished")
 
 if arg == "-v" or arg == "--version":
-    print("v1.2 Full Release")
+    print("v1.3 Full Release")
