@@ -116,12 +116,13 @@ if arg == "" or arg == "--debug":
 if arg == "--help" or arg == "-h":
     print(f"\033[1m{wf_orange}Wfetch 2025 KoffeeWare{wf_orange.OFF}")
     print("Usage: Wfetch [options]\n")
-    print("-h           This help page.")
-    print("-s           Setup Wfetch.")
-    print("-v           Show version of Wfetch.")
+    print("-h, --help           This help page.")
+    print("-s, --setup           Setup Wfetch.")
+    print("-v, --version           Show version of Wfetch.")
     print("--debug      Debug features. Good for seeing of config file is being read correctly.")
+    print("--show-icons        shows all icons. I use this for editing icons.")
 
-if arg == "-s":
+if arg == "-s" or arg == "--setup":
     print("Welcome to the WeatherFetch Setup.")
     api_key = input("Please enter your API key from openweathermap.org: ")
     city = input("Please enter your city name: ")
@@ -132,5 +133,9 @@ if arg == "-s":
         f.write(f"\n{city}")
         f.write(f"\n{unit}")
 
-if arg == "-v":
+if arg == "--show-icons":
+    chk_id.all()
+    print("finished")
+
+if arg == "-v" or arg == "--version":
     print("v1.2 Full Release")
