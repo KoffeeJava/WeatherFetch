@@ -15,7 +15,7 @@ try:
 except:
     arg = ""
 
-wf_orange = ColorHex("#ffc83d")
+wf_orange = ColorHex("#ee8b00")
 error_red = ColorHex("#ff0000")
 hot_red = ColorHex("#ff3d3d")
 warm_orange = ColorHex("#ffc83d")

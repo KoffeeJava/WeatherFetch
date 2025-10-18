@@ -1,5 +1,6 @@
 from colorist import ColorHex
-orange = ColorHex("#ffc83d")
+orange = ColorHex("#ee8b00")
+white = ColorHex('#ffffff')
 
 def clear():
     print(f"""{orange} ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
