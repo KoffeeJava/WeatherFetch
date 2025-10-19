@@ -23,7 +23,7 @@ an API key for you!
 + ~~Make library for description~~(I use id codes now)
 + ~~Add M-Metric units 🤢~~
 + ~~Make a Windows version~~
-+ Make a MacOS version
++ ~~Make a MacOS version~~
 + Make more people use it
 
 # Credit
