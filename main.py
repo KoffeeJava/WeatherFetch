@@ -135,4 +135,4 @@ if arg == "--show-icons":
     print("finished")
 
 if arg == "-v" or arg == "--version":
-    print("v1.3 PE")
+    print("v1.3 PE (Portible Edition)")
