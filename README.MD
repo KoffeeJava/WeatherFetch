@@ -20,9 +20,11 @@ an API key for you!
 
 # To do
 + ~~Add ASCII icons~~
-+ ~~Make library for description~~
++ ~~Make library for description~~(I use id codes now)
 + ~~Add M-Metric units 🤢~~
-+ Make a Windows version
++ ~~Make a Windows version~~
++ Make a MacOS version
++ Make more people use it
 
 # Credit
 OpenWeatherMap: for icons, and free api.
