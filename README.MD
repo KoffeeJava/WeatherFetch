@@ -24,3 +24,5 @@ an API key for you!
 + ~~Add M-Metric units 🤢~~
 + Make a Windows version
 
+# Credit
+OpenWeatherMap: for icons, and free api.
