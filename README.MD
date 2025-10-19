@@ -22,5 +22,5 @@ an API key for you!
 + ~~Add ASCII icons~~
 + ~~Make library for description~~
 + ~~Add M-Metric units 🤢~~
-+ Make a Windows version
++ ~~Make a Windows version~~
 
