@@ -21,3 +21,15 @@ def id_to_icon(id):
         icons.snow()
     elif id in range(701, 781):
         icons.mist()
+
+def all():
+    icons.clear()
+    icons.fclouds()
+    icons.sclouds()
+    icons.bclouds()
+    icons.occlouds()
+    icons.srain()
+    icons.rain()
+    icons.tstorm()
+    icons.snow()
+    icons.mist()
