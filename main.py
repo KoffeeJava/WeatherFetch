@@ -25,7 +25,7 @@ debug_orange = ColorHex("#ffbc21")
 if arg == "" or arg == "--debug":
     print(f"\033[1m{wf_orange}WeatherFetch KoffeeWare 2025{wf_orange.OFF}")
     try:
-        with open(os.path.expanduser("~/.local/share/Wfetch/config.cfg")) as f:
+        with open(os.path.expanduser("config.cfg")) as f:
             content = f.readlines()
             api_key = content[0].rstrip()
             city = content[1].rstrip()
