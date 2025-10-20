@@ -44,7 +44,7 @@ if arg == "" or arg == "--debug":
         sys.exit(1)
 
     try:
-            with open('disp.toml', 'r') as f:
+            with open(os.path.expanduser('~/.local/share/Wfetch/disp.toml'), 'r') as f:
                 order = toml.load(f)
     except:
             print(f"\033[1m{hot_red}Your Config file for displaying information is missing!\nCreate one by copy one of the examples into ~/.local/Wfetch/{hot_red.OFF}")
