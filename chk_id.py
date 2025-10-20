@@ -1,11 +1,11 @@
 import icons
 
 def id_to_icon(id):
-    if id == 800:
+    if id == 1000:
         icons.clear()
-    elif id == 801:
+    elif id == 1003:
         icons.fclouds()
-    elif id == 802:
+    elif id == 1006:
         icons.sclouds()
     elif id == 803:
         icons.bclouds()

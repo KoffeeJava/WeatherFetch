@@ -43,7 +43,7 @@ if arg == "" or arg == "--debug":
         print(f"\033[1m{error_red}the config file was not found! Please run wfetch -s")
         sys.exit(1)
 
-    fetch_url = f"http://api.openweathermap.org/data/2.5/weather?appid={api_key}&q={city}"
+    fetch_url = f"http://api.weatherapi.com/v1/current.json?q={city}&key={api_key}"
 
     if arg == "--debug":
         print(f"\033[1m{debug_orange}Full fetch url: {fetch_url}{debug_orange.OFF}")
@@ -56,17 +56,16 @@ if arg == "" or arg == "--debug":
         if arg == "--debug":
             print(f"\033[1m{debug_orange}Fetched: {data}{debug_orange.OFF}")
 
-        tem = data['main']['temp']
-        ftem = data['main']['feels_like']
-        ftemp = math.floor((ftem - 273.15) * 9 / 5 + 32)
-        ftempm = math.floor((ftemp - 32) / 1.8)
-        temp = math.floor((tem - 273.15) * 9 / 5 + 32)
-        tempm = math.floor((temp - 32) / 1.8)
-        desc = data['weather'][0]['description']
-        press = data['main']['pressure']
-        wind = data['wind']['speed']
-        humidity = data['main']['humidity']
-        id = data['weather'][0]['id']
+        fftemp = data['current']['feelslike_f']
+        fctemp = data['current']['feelslike_c']
+        temp = data['current']['temp_f']
+        tempm = data['current']['temp_c']
+        desc = data['current']['condition']['text']
+        press = data['current']['pressure_in']
+        cwind = data['current']['wind_mph']
+        mwind = data['current']['wind_kph']
+        humidity = data['current']['humidity']
+        id = data['current']['condition']['code']
 
         chk_id.id_to_icon(id)
 
@@ -78,12 +77,12 @@ if arg == "" or arg == "--debug":
             elif temp < 70:
                 print(f"Live Temperature: \033[1m{cold_blue}{temp}°F{cold_blue.OFF}")
 
-            if ftemp > 85:
-                print(f"Feels like: \033[1m{hot_red}{ftemp}°F{hot_red.OFF}")
-            elif ftemp in range(70, 84):
-                print(f"Feels like: \033[1m{warm_orange}{ftemp}°F{warm_orange.OFF}")
-            elif ftemp < 70:
-                print(f"Feels like: \033[1m{cold_blue}{ftemp}°F{cold_blue.OFF}")
+            if fctemp > 85:
+                print(f"Feels like: \033[1m{hot_red}{fctemp}°F{hot_red.OFF}")
+            elif fctemp in range(70, 84):
+                print(f"Feels like: \033[1m{warm_orange}{fctemp}°F{warm_orange.OFF}")
+            elif fctemp < 70:
+                print(f"Feels like: \033[1m{cold_blue}{fctemp}°F{cold_blue.OFF}")
         elif unit == "m":
             if tempm > 29:
                 print(f"Live Temperature: \033[1m{hot_red}{tempm}°C{hot_red.OFF}")
@@ -92,22 +91,22 @@ if arg == "" or arg == "--debug":
             elif tempm < 21:
                 print(f"Live Temperature: \033[1m{cold_blue}{tempm}°C{cold_blue.OFF}")
 
-            if ftempm > 29:
-                print(f"Feels like: \033[1m{hot_red}{ftempm}°C{hot_red.OFF}")
-            elif ftempm in range(21, 28):
-                print(f"Feels like: \033[1m{warm_orange}{ftempm}°C{warm_orange.OFF}")
-            elif ftempm < 21:
-                print(f"Feels like: \033[1m{cold_blue}{ftempm}°C{cold_blue.OFF}")
+            if fctemp > 29:
+                print(f"Feels like: \033[1m{hot_red}{fctemp}°C{hot_red.OFF}")
+            elif fctemp in range(21, 28):
+                print(f"Feels like: \033[1m{warm_orange}{fctemp}°C{warm_orange.OFF}")
+            elif fctemp < 21:
+                print(f"Feels like: \033[1m{cold_blue}{fctemp}°C{cold_blue.OFF}")
 
         if unit == "c":
-            if math.floor(wind / 1.609344) in range(1, 12):
-                print(f"Wind Speed: \033[1m{cold_blue}{math.floor(wind / 1.609344)} Mph{cold_blue.OFF}")
-            elif math.floor(wind / 1.609344) in range(13, 25):
-                print(f"Wind Speed: \033[1m{warm_orange}{math.floor(wind / 1.609344)} Mph{warm_orange.OFF}")
-            elif math.floor(wind / 1.609344) in range(26, 73):
-                print(f"Wind Speed: \033[1m{hot_red}{math.floor(wind / 1.609344)} Mph{hot_red.OFF}")
+            if cwind in range(1, 12):
+                print(f"Wind Speed: \033[1m{cold_blue}{cwind} Mph")
+            elif cwind in range(13, 25):
+                print(f"Wind Speed: \033[1m{warm_orange}{cwind} Mph{warm_orange.OFF}")
+            elif cwind in range(26, 73):
+                print(f"Wind Speed: \033[1m{hot_red}{cwind} Mph{hot_red.OFF}")
         elif unit == "m":
-            print(f"Wind Speed: {wind} Km/h")
+            print(f"Wind Speed: {mwind} Km/h")
 
         print(f"Humidity: {humidity}%")
         print(f"Weather Description: \033[1m{wf_orange}{desc}{wf_orange.OFF}")
@@ -138,4 +137,4 @@ if arg == "--show-icons":
     print("finished")
 
 if arg == "-v" or arg == "--version":
-    print("v1.3 Full Release")
+    print("v2.0 Full Release")
