@@ -4,6 +4,7 @@ import math
 import os
 import shutil
 import sys
+import toml
 
 import requests
 from colorist import ColorHex
@@ -28,11 +29,10 @@ if not os.path.exists(os.path.expanduser("~/.local/share/Wfetch")):
 if arg == "" or arg == "--debug":
     print(f"\033[1m{wf_orange}WeatherFetch KoffeeWare 2025{wf_orange.OFF}")
     try:
-        with open(os.path.expanduser("~/.local/share/Wfetch/config.cfg")) as f:
-            content = f.readlines()
-            api_key = content[0].rstrip()
-            city = content[1].rstrip()
-            unit = content[2]
+        with open(os.path.expanduser("~/.local/share/Wfetch/config.toml")) as f:
+            content = toml.load(f)
+            api_key = content['api']
+            city = content['city']
 
             if arg == "--debug":
                 print(f"\033[1m{debug_orange}Read API key as: {api_key}{debug_orange.OFF}")
@@ -42,6 +42,13 @@ if arg == "" or arg == "--debug":
     except:
         print(f"\033[1m{error_red}the config file was not found! Please run wfetch -s")
         sys.exit(1)
+
+    try:
+            with open('disp.toml', 'r') as f:
+                order = toml.load(f)
+    except:
+            print(f"\033[1m{hot_red}Your Config file for displaying information is missing!\nCreate one by copy one of the examples into ~/.local/Wfetch/{hot_red.OFF}")
+            sys.exit(1)
 
     fetch_url = f"http://api.weatherapi.com/v1/current.json?q={city}&key={api_key}"
 
@@ -67,49 +74,75 @@ if arg == "" or arg == "--debug":
         humidity = data['current']['humidity']
         id = data['current']['condition']['code']
 
+        if temp > 85:
+            temp_format = f"\033[1m{hot_red}{temp}F°{hot_red.OFF}"
+        elif temp in range(70, 84):
+            temp_format = f"\033[1m{warm_orange}{temp}F°{warm_orange.OFF}"
+        elif temp < 70:
+            temp_format = f"\033[1m{cold_blue}{temp}F°{cold_blue.OFF}"
+
+        if fftemp > 85:
+            fftemp_format = f"\033[1m{hot_red}{fftemp}F°{hot_red.OFF}"
+        elif temp in range(70, 84):
+            fftemp_format = f"\033[1m{warm_orange}{fftemp}F°{warm_orange.OFF}"
+        elif temp < 70:
+            fftemp_format = f"\033[1m{cold_blue}{fftemp}F°{cold_blue.OFF}"
+
+        if tempm > 29:
+                tempm_format = f"\033[1m{hot_red}{tempm}C°{hot_red.OFF}"
+        elif tempm in range(21, 28):
+                tempm_format = f"\033[1m{warm_orange}{tempm}C°{warm_orange.OFF}"
+        elif tempm < 21:
+                tempm_format = f"\033[1m{cold_blue}{tempm}C°{cold_blue.OFF}"
+        
+        if fctemp > 29:
+                fctemp_format = f"\033[1m{hot_red}{fctemp}C°{hot_red.OFF}"
+        elif fctemp in range(21, 28):
+                fctemp_format = f"\033[1m{warm_orange}{fctemp}C°{warm_orange.OFF}"
+        elif fctemp < 21:
+                fctemp_format = f"\033[1m{cold_blue}{fctemp}C°{cold_blue.OFF}"
+
+        if round(cwind) in range(1, 12):
+                cwind_format = f"\033[1m{cold_blue}{cwind} MPH{cold_blue.OFF}"
+        elif round(cwind) in range(13, 25):
+                cwind_format = f"\033[1m{warm_orange}{cwind} MPH{warm_orange.OFF}"
+        elif round(cwind) in range(26, 73):
+                cwind_format = f"\033[1m{hot_red}{cwind} MPH{hot_red.OFF}"
+
+        if round(mwind) in range(1, 19):
+                mwind_format = f"\033[1m{cold_blue}{mwind} KPH{cold_blue.OFF}"
+        elif round(mwind) in range(30, 45):
+                mwind_format = f"\033[1m{warm_orange}{mwind} KPH{warm_orange.OFF}"
+        elif round(mwind) in range(46, 117):
+                mwind_format = f"\033[1m{hot_red}{mwind} KPH{hot_red.OFF}"
+
+        humidity_format = f"{humidity}%"
+
+        desc_format = f"\033[1m{wf_orange}{desc}{wf_orange.OFF}"
+
         chk_id.id_to_icon(id)
 
-        if unit == "c":
-            if temp > 85:
-                print(f"Live Temperature: \033[1m{hot_red}{temp}°F{hot_red.OFF}")
-            elif temp in range(70, 84):
-                print(f"Live Temperature: \033[1m{warm_orange}{temp}°F{warm_orange.OFF}")
-            elif temp < 70:
-                print(f"Live Temperature: \033[1m{cold_blue}{temp}°F{cold_blue.OFF}")
+        linenum = 1
 
-            if fctemp > 85:
-                print(f"Feels like: \033[1m{hot_red}{fctemp}°F{hot_red.OFF}")
-            elif fctemp in range(70, 84):
-                print(f"Feels like: \033[1m{warm_orange}{fctemp}°F{warm_orange.OFF}")
-            elif fctemp < 70:
-                print(f"Feels like: \033[1m{cold_blue}{fctemp}°F{cold_blue.OFF}")
-        elif unit == "m":
-            if tempm > 29:
-                print(f"Live Temperature: \033[1m{hot_red}{tempm}°C{hot_red.OFF}")
-            elif tempm in range(21, 28):
-                print(f"Live Temperature: \033[1m{warm_orange}{tempm}°C{warm_orange.OFF}")
-            elif tempm < 21:
-                print(f"Live Temperature: \033[1m{cold_blue}{tempm}°C{cold_blue.OFF}")
+        while True:
+            try:
+                line = order[f'{linenum}']
+            except:
+                break
+            line_formatted = line.format(
+                feels_temp_f=fftemp_format, 
+                feels_temp_c=fctemp_format, 
+                temp_f=temp_format, 
+                temp_c=tempm_format, 
+                description=desc_format, 
+                pressure=f"{press}%", 
+                wind_mph=cwind_format, 
+                wind_kph=mwind_format,
+                humidity=f"{humidity}%")
 
-            if fctemp > 29:
-                print(f"Feels like: \033[1m{hot_red}{fctemp}°C{hot_red.OFF}")
-            elif fctemp in range(21, 28):
-                print(f"Feels like: \033[1m{warm_orange}{fctemp}°C{warm_orange.OFF}")
-            elif fctemp < 21:
-                print(f"Feels like: \033[1m{cold_blue}{fctemp}°C{cold_blue.OFF}")
+            print(line_formatted)
+            linenum += 1
 
-        if unit == "c":
-            if cwind in range(1, 12):
-                print(f"Wind Speed: \033[1m{cold_blue}{cwind} Mph")
-            elif cwind in range(13, 25):
-                print(f"Wind Speed: \033[1m{warm_orange}{cwind} Mph{warm_orange.OFF}")
-            elif cwind in range(26, 73):
-                print(f"Wind Speed: \033[1m{hot_red}{cwind} Mph{hot_red.OFF}")
-        elif unit == "m":
-            print(f"Wind Speed: {mwind} Km/h")
-
-        print(f"Humidity: {humidity}%")
-        print(f"Weather Description: \033[1m{wf_orange}{desc}{wf_orange.OFF}")
     else:
         print('Error fetching weather data!')
 if arg == "--help" or arg == "-h":
@@ -123,14 +156,12 @@ if arg == "--help" or arg == "-h":
 
 if arg == "-s" or arg == "--setup":
     print("Welcome to the WeatherFetch Setup.")
-    api_key = input("Please enter your API key from openweathermap.org: ")
+    api_key = input("Please enter your API key from Weather API: ")
     city = input("Please enter your city name: ")
-    unit = input("Customary or metric? (c/m): ")
 
-    with open(os.path.expanduser("~/.local/share/Wfetch/config.cfg"), "w") as f:
-        f.write(api_key)
-        f.write(f"\n{city}")
-        f.write(f"\n{unit}")
+    with open(os.path.expanduser("~/.local/share/Wfetch/config.toml"), "w") as f:
+        f.write(f"api = \"{api_key}\"")
+        f.write(f"\ncity = \"{city}\"")
 
 if arg == "--show-icons":
     chk_id.all()
@@ -138,3 +169,4 @@ if arg == "--show-icons":
 
 if arg == "-v" or arg == "--version":
     print("v2.0 Full Release")
+    toml = order['order']['1']
