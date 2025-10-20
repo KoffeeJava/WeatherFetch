@@ -111,7 +111,7 @@ if arg == "" or arg == "--debug":
 
         if round(mwind) in range(1, 19):
                 mwind_format = f"\033[1m{cold_blue}{mwind} KPH{cold_blue.OFF}"
-        elif round(mwind) in range(30, 45):
+        elif round(mwind) in range(20, 45):
                 mwind_format = f"\033[1m{warm_orange}{mwind} KPH{warm_orange.OFF}"
         elif round(mwind) in range(46, 117):
                 mwind_format = f"\033[1m{hot_red}{mwind} KPH{hot_red.OFF}"
