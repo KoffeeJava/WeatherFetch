@@ -75,32 +75,32 @@ if arg == "" or arg == "--debug":
         id = data['current']['condition']['code']
 
         if temp > 85:
-            temp_format = f"\033[1m{hot_red}{temp}F°{hot_red.OFF}"
+            temp_format = f"\033[1m{hot_red}{temp }°{hot_red.OFF}"
         elif temp in range(70, 84):
-            temp_format = f"\033[1m{warm_orange}{temp}F°{warm_orange.OFF}"
+            temp_format = f"\033[1m{warm_orange}{temp}°{warm_orange.OFF}"
         elif temp < 70:
-            temp_format = f"\033[1m{cold_blue}{temp}F°{cold_blue.OFF}"
+            temp_format = f"\033[1m{cold_blue}{temp}°{cold_blue.OFF}"
 
         if fftemp > 85:
-            fftemp_format = f"\033[1m{hot_red}{fftemp}F°{hot_red.OFF}"
+            fftemp_format = f"\033[1m{hot_red}{fftemp}°{hot_red.OFF}"
         elif temp in range(70, 84):
-            fftemp_format = f"\033[1m{warm_orange}{fftemp}F°{warm_orange.OFF}"
+            fftemp_format = f"\033[1m{warm_orange}{fftemp}°{warm_orange.OFF}"
         elif temp < 70:
-            fftemp_format = f"\033[1m{cold_blue}{fftemp}F°{cold_blue.OFF}"
+            fftemp_format = f"\033[1m{cold_blue}{fftemp}°{cold_blue.OFF}"
 
         if tempm > 29:
-                tempm_format = f"\033[1m{hot_red}{tempm}C°{hot_red.OFF}"
+                tempm_format = f"\033[1m{hot_red}{tempm}°{hot_red.OFF}"
         elif tempm in range(21, 28):
-                tempm_format = f"\033[1m{warm_orange}{tempm}C°{warm_orange.OFF}"
+                tempm_format = f"\033[1m{warm_orange}{tempm}°{warm_orange.OFF}"
         elif tempm < 21:
-                tempm_format = f"\033[1m{cold_blue}{tempm}C°{cold_blue.OFF}"
+                tempm_format = f"\033[1m{cold_blue}{tempm}°{cold_blue.OFF}"
         
         if fctemp > 29:
-                fctemp_format = f"\033[1m{hot_red}{fctemp}C°{hot_red.OFF}"
+                fctemp_format = f"\033[1m{hot_red}{fctemp}°{hot_red.OFF}"
         elif fctemp in range(21, 28):
-                fctemp_format = f"\033[1m{warm_orange}{fctemp}C°{warm_orange.OFF}"
+                fctemp_format = f"\033[1m{warm_orange}{fctemp}°{warm_orange.OFF}"
         elif fctemp < 21:
-                fctemp_format = f"\033[1m{cold_blue}{fctemp}C°{cold_blue.OFF}"
+                fctemp_format = f"\033[1m{cold_blue}{fctemp}°{cold_blue.OFF}"
 
         if round(cwind) in range(1, 12):
                 cwind_format = f"\033[1m{cold_blue}{cwind} MPH{cold_blue.OFF}"
