@@ -11,6 +11,7 @@ if os.geteuid() != 0:
         sys.exit(1)
 
 shutil.copyfile("wfetch", os.path.expanduser("/usr/bin/wfetch"))
+shutil.copyfile("disp.toml", os.path.expanduser("/home/koffeejava/.local/share/Wfetch/disp.toml"))
 
 os.system("chmod +x /usr/bin/wfetch")
 
