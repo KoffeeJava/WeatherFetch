@@ -11,16 +11,18 @@ Download or open the latest release of wftech and run `sudo ./uninstall`
 
 # FAQ
 
-## How do I get an OpenWeather API key?
+## How do I get an Weather API key?
 
-OpenWeather is a free and easy API for weather. To get your API key,
-first go to the [OpenWeather Website](https://openweathermap.org/). and sign up for an account.
-When you finished making your account, click your profile and click "My API keys" where it will show you
-an API key for you!
+First, go to the (Weather API)[https://www.weatherapi.com/] website and then sign up. When finished creating an account, login then copy your api key.
+Make sure to paste that api key to setup.
 
 # To do
 + ~~Add ASCII icons~~
-+ ~~Make library for description~~
++ ~~Make library for description~~(I use id codes now)
 + ~~Add M-Metric units 🤢~~
-+ Make a Windows version
++ ~~Make a Windows version~~
++ ~~Make a MacOS version~~
++ Make more people use it
 
+# Credit
+OpenWeatherMap: for icons, and free api.

@@ -1,0 +1,7 @@
+# For people who uses good units!
+
+1 = "Live Temperature: {temp_c}"
+2 = "Feels like: {feels_temp_c}"
+3 = "Wind KPH: {wind_kph}"
+4 = "Humidity: {humidity}"
+5 = "Description: {description}"
