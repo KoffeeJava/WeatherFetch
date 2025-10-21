@@ -1,0 +1,10 @@
+# This disp contains aeverything you can display.
+
+1 = "Live Temperature in F: {temp_f}"
+2 = "Live Temperature in C: {temp_c}"
+3 = "Feels like in F: {feels_temp_f}"
+4 = "Feels like in C: {feels_temp_c}"
+5 = "Wind MPH: {wind_mph}"
+6 = "Wind KPH: {wind_kph}"
+7 = "Humidity: {humidity}"
+8 = "Description: {description}"

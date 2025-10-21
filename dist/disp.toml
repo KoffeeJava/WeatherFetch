@@ -1,0 +1,12 @@
+# This is the config file for displaying weather information!
+# I will provide examples of configs in the "disp-examples" directory.
+# You can edit this by deleting one of the lines, changing the text (eg, "Live Temperature:"), and by changing the type of weather displayed!
+
+1 = "Live Temperature in F: {temp_f}"
+2 = "Live Temperature in C: {temp_c}"
+3 = "Feels like in F: {feels_temp_f}"
+4 = "Feels like in C: {feels_temp_c}"
+5 = "Wind MPH: {wind_mph}"
+6 = "Wind KPH: {wind_kph}"
+7 = "Humidity: {humidity}"
+8 = "Description: {description}"
