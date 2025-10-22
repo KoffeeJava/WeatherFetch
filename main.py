@@ -173,5 +173,5 @@ if arg == "--show-icons":
     print("finished")
 
 if arg == "-v" or arg == "--version":
-    print("v2.0 Full Release")
+    print("v2.1 Full Release")
     toml = order['order']['1']
