@@ -1,7 +1,7 @@
-# For people who uses good units!
+# This disp contains weather for the 'mericans (or... other countries that use customary units).
 
-1 = "Live Temperature: {temp_c}"
-2 = "Feels like: {feels_temp_c}"
-3 = "Wind KPH: {wind_kph}"
-4 = "Humidity: {humidity}"
-5 = "Description: {description}"
+1 = "Live Temperature: {temp_c}°"
+2 = "Feels like: {feels_temp_c}°"
+3 = "Wind Speed: {wind_kph} KPH"
+4 = "Humidity: {humidity}{orange}%{orange_OFF}"
+5 = "Description: {orange}{bold}{description}{reset}{orange_OFF}"

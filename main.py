@@ -5,10 +5,8 @@ import os
 import shutil
 import sys
 import toml
-
 import requests
 from colorist import ColorHex
-
 import chk_id
 
 try:
@@ -40,14 +38,14 @@ if arg == "" or arg == "--debug":
                 print(
                     f"\033[1m{debug_orange}Read unit of measure as: {unit} (c for customary and m for metric){debug_orange.OFF}")
     except:
-        print(f"\033[1m{error_red}the config file was not found! Please run wfetch -s")
+        print(f"\033[1;5m{error_red}The config file was not found! Please run wfetch -s\033[0m")
         sys.exit(1)
 
     try:
             with open(os.path.expanduser('~/.local/share/Wfetch/disp.toml'), 'r') as f:
                 order = toml.load(f)
     except:
-            print(f"\033[1m{hot_red}Your Config file for displaying information is missing!\nCreate one by copy one of the examples into ~/.local/Wfetch/{hot_red.OFF}")
+            print(f"\033[1;5m{hot_red}Your Config file for displaying information is missing!\nCreate one by copy one of the examples into ~/.local/Wfetch/{hot_red.OFF}\033[0m")
             sys.exit(1)
 
     fetch_url = f"http://api.weatherapi.com/v1/current.json?q={city}&key={api_key}"
@@ -75,50 +73,48 @@ if arg == "" or arg == "--debug":
         id = data['current']['condition']['code']
 
         if temp > 85:
-            temp_format = f"\033[1m{hot_red}{temp }°{hot_red.OFF}"
+            temp_format = f"\033[1m{hot_red}{temp }{hot_red.OFF}"
         elif temp in range(70, 84):
-            temp_format = f"\033[1m{warm_orange}{temp}°{warm_orange.OFF}"
+            temp_format = f"\033[1m{warm_orange}{temp}{warm_orange.OFF}"
         elif temp < 70:
-            temp_format = f"\033[1m{cold_blue}{temp}°{cold_blue.OFF}"
+            temp_format = f"\033[1m{cold_blue}{temp}{cold_blue.OFF}"
 
         if fftemp > 85:
-            fftemp_format = f"\033[1m{hot_red}{fftemp}°{hot_red.OFF}"
+            fftemp_format = f"\033[1m{hot_red}{fftemp}{hot_red.OFF}"
         elif temp in range(70, 84):
-            fftemp_format = f"\033[1m{warm_orange}{fftemp}°{warm_orange.OFF}"
+            fftemp_format = f"\033[1m{warm_orange}{fftemp}{warm_orange.OFF}"
         elif temp < 70:
-            fftemp_format = f"\033[1m{cold_blue}{fftemp}°{cold_blue.OFF}"
+            fftemp_format = f"\033[1m{cold_blue}{fftemp}{cold_blue.OFF}"
 
         if tempm > 29:
-                tempm_format = f"\033[1m{hot_red}{tempm}°{hot_red.OFF}"
+                tempm_format = f"\033[1m{hot_red}{tempm}{hot_red.OFF}"
         elif tempm in range(21, 28):
-                tempm_format = f"\033[1m{warm_orange}{tempm}°{warm_orange.OFF}"
+                tempm_format = f"\033[1m{warm_orange}{tempm}{warm_orange.OFF}"
         elif tempm < 21:
-                tempm_format = f"\033[1m{cold_blue}{tempm}°{cold_blue.OFF}"
+                tempm_format = f"\033[1m{cold_blue}{tempm}{cold_blue.OFF}"
         
         if fctemp > 29:
-                fctemp_format = f"\033[1m{hot_red}{fctemp}°{hot_red.OFF}"
+                fctemp_format = f"\033[1m{hot_red}{fctemp}{hot_red.OFF}"
         elif fctemp in range(21, 28):
-                fctemp_format = f"\033[1m{warm_orange}{fctemp}°{warm_orange.OFF}"
+                fctemp_format = f"\033[1m{warm_orange}{fctemp}{warm_orange.OFF}"
         elif fctemp < 21:
-                fctemp_format = f"\033[1m{cold_blue}{fctemp}°{cold_blue.OFF}"
+                fctemp_format = f"\033[1m{cold_blue}{fctemp}{cold_blue.OFF}"
 
         if round(cwind) in range(1, 12):
-                cwind_format = f"\033[1m{cold_blue}{cwind} MPH{cold_blue.OFF}"
+                cwind_format = f"\033[1m{cold_blue}{cwind}{cold_blue.OFF}"
         elif round(cwind) in range(13, 25):
-                cwind_format = f"\033[1m{warm_orange}{cwind} MPH{warm_orange.OFF}"
+                cwind_format = f"\033[1m{warm_orange}{cwind}{warm_orange.OFF}"
         elif round(cwind) in range(26, 73):
-                cwind_format = f"\033[1m{hot_red}{cwind} MPH{hot_red.OFF}"
+                cwind_format = f"\033[1m{hot_red}{cwind}{hot_red.OFF}"
 
         if round(mwind) in range(1, 19):
-                mwind_format = f"\033[1m{cold_blue}{mwind} KPH{cold_blue.OFF}"
+                mwind_format = f"\033[1m{cold_blue}{mwind}{cold_blue.OFF}"
         elif round(mwind) in range(20, 45):
-                mwind_format = f"\033[1m{warm_orange}{mwind} KPH{warm_orange.OFF}"
+                mwind_format = f"\033[1m{warm_orange}{mwind}{warm_orange.OFF}"
         elif round(mwind) in range(46, 117):
-                mwind_format = f"\033[1m{hot_red}{mwind} KPH{hot_red.OFF}"
+                mwind_format = f"\033[1m{hot_red}{mwind}{hot_red.OFF}"
 
-        humidity_format = f"{humidity}%"
-
-        desc_format = f"\033[1m{wf_orange}{desc}{wf_orange.OFF}"
+        desc_format = f"{desc}"
 
         chk_id.id_to_icon(id)
 
@@ -134,11 +130,16 @@ if arg == "" or arg == "--debug":
                 feels_temp_c=fctemp_format, 
                 temp_f=temp_format, 
                 temp_c=tempm_format, 
-                description=desc_format, 
-                pressure=f"{press}%", 
+                description=desc_format,
+                bold="\033[1m".format(), # colorist gave me double lines instead of bold. WHY!!!!
+                blink="\033[5m".format(),
+                reset="\033[0m".format(),
+                pressure=press, 
                 wind_mph=cwind_format, 
                 wind_kph=mwind_format,
-                humidity=f"{humidity}%")
+                humidity=humidity,
+                orange=wf_orange,
+                orange_OFF=wf_orange.OFF)
 
             print(line_formatted)
             linenum += 1
