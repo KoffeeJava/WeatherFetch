@@ -16,6 +16,9 @@ Download or open the latest release of wftech and run `sudo ./uninstall`
 First, go to the (Weather API)[https://www.weatherapi.com/] website and then sign up. When finished creating an account, login then copy your api key.
 Make sure to paste that api key to setup.
 
+## Why don't you provide an api key?
+I'm lazy. (plus api call limit stuff)
+
 # To do
 + ~~Add ASCII icons~~
 + ~~Make library for description~~(I use id codes now)
@@ -23,4 +26,8 @@ Make sure to paste that api key to setup.
 + ~~Make a Windows version~~
 + ~~Make a MacOS version~~
 + Make more people use it
+
+# Credit
+[OpenWeatherMap](https://openweathermap.org/weather-conditions): their icons were used for the ascii art.
+[Weather API](www.weatherapi.com) Their api is used for this program.
 
