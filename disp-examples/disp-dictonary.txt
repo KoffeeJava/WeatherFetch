@@ -16,5 +16,9 @@ pressure        Gives you pressure readings
 wind_mph        Gives you wind readings in mph
 wind_kph        Gives you wind readings in kph
 humidity        Gives you humidity readings
+red      Makes text red
+red_OFF  Makes text not orange
 orange      Makes text orange
 orange_OFF  Makes text not orange
+blue      Makes text blue
+blue_OFF  Makes text not blue

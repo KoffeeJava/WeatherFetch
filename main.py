@@ -139,7 +139,11 @@ if arg == "" or arg == "--debug":
                 wind_kph=mwind_format,
                 humidity=humidity,
                 orange=wf_orange,
-                orange_OFF=wf_orange.OFF)
+                orange_OFF=wf_orange.OFF,
+                red=hot_red,
+                red_OFF=hot_red.OFF,
+                blue=cold_blue,
+                blue_OFF=cold_blue.OFF)
 
             print(line_formatted)
             linenum += 1
