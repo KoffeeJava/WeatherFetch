@@ -22,3 +22,5 @@ orange      Makes text orange
 orange_OFF  Makes text not orange
 blue      Makes text blue
 blue_OFF  Makes text not blue
+
+To people with non-portable versions: Your disp.toml file is located at ~/.local/Wfetch/
