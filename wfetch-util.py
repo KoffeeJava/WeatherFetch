@@ -87,5 +87,5 @@ if arg == "-s" or arg == "--setup":
         
             else:
                 os.system("clear")
-                print("You have exited the setup! Don't worry, You can start it again by running \"./install -s\"")
+                print("You have exited the setup! Don't worry, You can start it again by running \"./wfetch-util -s\"")
                 sys.exit(1)
