@@ -39,8 +39,16 @@ if arg == "":
         sys.exit(0)
 
 if arg == "-u" or arg == "--uninstall":
-    os.system("rm /usr/bin/wfetch")
-    os.system("rm -rf $HOME/.local/share/Wfetch")
+
+    if os.geteuid() != 0:
+        d.msgbox("You are not in root! Please enter root to install Wfetch.")
+        os.system("clear")
+        sys.exit(1)
+
+    code, path = d.dselect("/usr/bin", title="Pleaseenter the directory wfetch is in.")
+
+    os.system(f"rm {path}/wfetch")
+    os.system(f"rm -rf {os.path.expanduser("~/.local/share/Wfetch")}")
 
 if arg == "-s" or arg == "--setup":
         d.set_background_title("Wfetch Setup")
