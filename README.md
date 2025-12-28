@@ -19,6 +19,21 @@ Make sure to paste that api key to setup.
 ## Why don't you provide an api key?
 I'm lazy. (plus api call limit stuff)
 
+# Building
+To make the executable, I use pyinstaller.
+All of these instructions work on Linux, Windows, and Macos.
+
+<details>
+<summary>Linux Users!</summary>
+    You guys get a bash script that builds everything! Your welcome :)
+</details>
+
+### Wfetch
+`pyinstaller -F main.py -n wfetch`
+
+### Installer
+`pyinstaller -F install.py -n install`
+
 # To do
 + ~~Add ASCII icons~~
 + ~~Make library for description~~(I use id codes now)

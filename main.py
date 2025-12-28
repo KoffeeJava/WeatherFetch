@@ -21,9 +21,6 @@ warm_orange = ColorHex("#ffc83d")
 cold_blue = ColorHex("#3f42ff")
 debug_orange = ColorHex("#ffbc21")
 
-if not os.path.exists(os.path.expanduser("~/.local/share/Wfetch")):
-    os.makedirs(os.path.expanduser("~/.local/share/Wfetch"))
-
 if arg == "" or arg == "--debug":
     print(f"\033[1m{wf_orange}WeatherFetch KoffeeWare 2025{wf_orange.OFF}")
     try:
