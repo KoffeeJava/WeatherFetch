@@ -32,8 +32,6 @@ if arg == "" or arg == "--debug":
             if arg == "--debug":
                 print(f"\033[1m{debug_orange}Read API key as: {api_key}{debug_orange.OFF}")
                 print(f"\033[1m{debug_orange}Read city as: {city}{debug_orange.OFF}")
-                print(
-                    f"\033[1m{debug_orange}Read unit of measure as: {unit} (c for customary and m for metric){debug_orange.OFF}")
     except:
         print(f"\033[1m{error_red}The config file was not found! Please run the wfetch-util setup.\033[0m")
         sys.exit(1)
