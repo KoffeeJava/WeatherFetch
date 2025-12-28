@@ -35,14 +35,14 @@ if arg == "" or arg == "--debug":
                 print(
                     f"\033[1m{debug_orange}Read unit of measure as: {unit} (c for customary and m for metric){debug_orange.OFF}")
     except:
-        print(f"\033[5m{error_red}The config file was not found! Please run the wfetch-util setup.\033[0m")
+        print(f"\033[1m{error_red}The config file was not found! Please run the wfetch-util setup.\033[0m")
         sys.exit(1)
 
     try:
             with open(os.path.expanduser('~/.local/share/Wfetch/disp.toml'), 'r') as f:
                 order = toml.load(f)
     except:
-            print(f"\033[1;5m{hot_red}Your Config file for displaying information is missing!\nCreate one by copy one of the examples into ~/.local/Wfetch/{hot_red.OFF}\033[0m")
+            print(f"\033[1m{hot_red}Your Config file for displaying information is missing!\nCreate one by copy one of the examples into ~/.local/Wfetch/{hot_red.OFF}\033[0m")
             sys.exit(1)
 
     fetch_url = f"http://api.weatherapi.com/v1/current.json?q={city}&key={api_key}"
@@ -151,7 +151,6 @@ if arg == "--help" or arg == "-h":
     print(f"\033[1m{wf_orange}Wfetch 2025 KoffeeWare{wf_orange.OFF}")
     print("Usage: Wfetch [options]\n")
     print("-h, --help           This help page.")
-    print("-s, --setup           Setup Wfetch.")
     print("-v, --version           Show version of Wfetch.")
     print("--debug      Debug features. Good for seeing of config file is being read correctly.")
     print("--show-icons        shows all icons. I use this for editing icons.")
