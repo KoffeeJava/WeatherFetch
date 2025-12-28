@@ -35,7 +35,7 @@ if arg == "" or arg == "--debug":
                 print(
                     f"\033[1m{debug_orange}Read unit of measure as: {unit} (c for customary and m for metric){debug_orange.OFF}")
     except:
-        print(f"\033[1;5m{error_red}The config file was not found! Please run wfetch -s\033[0m")
+        print(f"\033[5m{error_red}The config file was not found! Please run the wfetch-util setup.\033[0m")
         sys.exit(1)
 
     try:
@@ -155,15 +155,6 @@ if arg == "--help" or arg == "-h":
     print("-v, --version           Show version of Wfetch.")
     print("--debug      Debug features. Good for seeing of config file is being read correctly.")
     print("--show-icons        shows all icons. I use this for editing icons.")
-
-if arg == "-s" or arg == "--setup":
-    print("Welcome to the WeatherFetch Setup.")
-    api_key = input("Please enter your API key from Weather API: ")
-    city = input("Please enter your city name: ")
-
-    with open(os.path.expanduser("~/.local/share/Wfetch/config.toml"), "w") as f:
-        f.write(f"api = \"{api_key}\"")
-        f.write(f"\ncity = \"{city}\"")
 
 if arg == "--show-icons":
     chk_id.all()
