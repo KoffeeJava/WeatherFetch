@@ -48,7 +48,7 @@ All of these instructions work on Linux, Windows, and Macos.
 `pyinstaller -F main.py -n wfetch`
 
 ## Wfetch-util
-` pyinstaller -F wfetch-util.py -n wfetch-util`
+`pyinstaller -F wfetch-util.py -n wfetch-util`
 
 # To do
 + ~~Add ASCII icons~~
