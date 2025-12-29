@@ -1,7 +1,3 @@
-# WARNING!
-## This is the Develoment Branch of WeatherFetch. This means It may work, or it may not work sometimes and if it works, more things can be broken.
-## Use the master branch if you want to build WeatherFetch
-
 # WeatherFetch - A weather app for your terminal.
 WeatherFetch is an application that shows the live temperature, air pressure, wind speed, humidity, and weather descriptions!
 
