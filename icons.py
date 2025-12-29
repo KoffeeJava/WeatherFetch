@@ -1,4 +1,17 @@
 from colorist import ColorHex
+from datetime import datetime
+
+time = int(datetime.now().strftime("%H%M"))
+
+print(time)
+
+if time > 1200:
+    orange = ColorHex("#505050")
+else:
+    orange = ColorHex("#ee8b00")
+
+gray = ColorHex('#212121')
+yellow = ColorHex('#ffbf00')
 orange = ColorHex("#ee8b00")
 gray = ColorHex('#212121')
 yellow = ColorHex('#ffbf00')
