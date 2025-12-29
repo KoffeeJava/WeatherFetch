@@ -16,13 +16,15 @@ print("(2) Metric")
 print("(3) Both")
 disp = input("Please select which unit you want to use. NOTE: You can customise how everything is shown! :")
 
-if disp == "(1)":
-    shutil.copyfile("disps/cust.toml", "disp.toml")
-elif disp == "(2)":
-    shutil.copyfile("disps/met.toml", "disp.toml")
-elif disp == "(3)":
-    shutil.copyfile("disps/both.toml", "disp.toml")
-
+if disp == "1":
+    shutil.copyfile("disp/cust.toml", "disp.toml")
+elif disp == "2":
+    shutil.copyfile("disp/met.toml", "disp.toml")
+elif disp == "3":
+    shutil.copyfile("disp/both.toml", "disp.toml")
+else:
+    shutil.copyfile("disp/both.toml", "disp.toml")
+    
 print("Setup has finnished! Enjoy!")
 
 
