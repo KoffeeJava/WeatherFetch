@@ -6,7 +6,7 @@ time = int(datetime.now().strftime("%H%M"))
 print(time)
 
 if time > 1200:
-    orange = ColorHex("#161616")
+    orange = ColorHex("#505050")
 else:
     orange = ColorHex("#ee8b00")
 

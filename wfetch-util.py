@@ -10,7 +10,7 @@ try:
 except:
     arg = ""
 
-if arg == "":
+if arg == "-i" or arg == "--install":
     d.set_background_title("Wfetch Installer")
 
     if os.geteuid() != 0:
@@ -31,7 +31,7 @@ if arg == "":
             print("Aborted install")
             sys.exit(1)
 
-        d.msgbox("wfetch is now installed! Please run ./install -s to setup.")
+        d.msgbox("wfetch is now installed! Please run ./wfetch-util -s to setup.")
     
     else:
         os.system("clear")
@@ -40,15 +40,10 @@ if arg == "":
 
 if arg == "-u" or arg == "--uninstall":
 
-    if os.geteuid() != 0:
-        d.msgbox("You are not in root! Please enter root to install Wfetch.")
-        os.system("clear")
-        sys.exit(1)
+    code, path = d.dselect("/usr/bin", title="Please enter the directory wfetch is in.")
 
-    code, path = d.dselect("/usr/bin", title="Pleaseenter the directory wfetch is in.")
-
-    os.system(f"rm {path}/wfetch")
-    os.system(f"rm -rf {os.path.expanduser("~/.local/share/Wfetch")}")
+    os.system(f"pkexec rm {path}/wfetch")
+    shutil.rmtree(os.path.expanduser("~/.local/share/Wfetch"))
 
 if arg == "-s" or arg == "--setup":
         d.set_background_title("Wfetch Setup")
@@ -89,3 +84,6 @@ if arg == "-s" or arg == "--setup":
                 os.system("clear")
                 print("You have exited the setup! Don't worry, You can start it again by running \"./wfetch-util -s\"")
                 sys.exit(1)
+
+if arg == "-h" or arg == "--help" or arg == "":
+    print("-h --help        This help page\n-s --setup      Setup wizzard for wfetch.\n-i --install        installer for wfetch.\n-u --uninstall        uninstaller for wfetch.")
