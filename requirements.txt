@@ -1,3 +1,4 @@
 toml
 requests
-colorists
+colorist
+pyinstaller
