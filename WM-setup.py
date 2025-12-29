@@ -17,11 +17,11 @@ print("(3) Both")
 disp = input("Please select which unit you want to use. NOTE: You can customise how everything is shown! :")
 
 if disp == "(1)":
-    shutil.copyfile("data/cust.toml", "disp.toml")
+    shutil.copyfile("disps/cust.toml", "disp.toml")
 elif disp == "(2)":
-    shutil.copyfile("data/met.toml", "disp.toml")
+    shutil.copyfile("disps/met.toml", "disp.toml")
 elif disp == "(3)":
-    shutil.copyfile("data/both.toml", "disp.toml")
+    shutil.copyfile("disps/both.toml", "disp.toml")
 
 print("Setup has finnished! Enjoy!")
 
