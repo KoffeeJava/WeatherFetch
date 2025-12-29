@@ -7,17 +7,29 @@ WeatherFetch is an application that shows the live temperature, air pressure, wi
 
 # How to install and setup
 
-Install by running the install script (`sudo ./install`) then setup wfetch via `wfetch -s`
+## Linux
+To install and setup wfetch on linux, I created a simple program called wfetch-util.
+
+Run `./wfetch-util -i` in root and follow the wizzard to install wfetch and then setup by running `./wfetch-util -s` and follow that wizzard to.
+
+## Windows and Macos
+Installing is just downloading the lastest version as you guys only get the portable version! (Macos can put into /Applications)
+
+You can setup by running the WM-setup program by running `./WM-setup` for both oses.
 
 # How to uninstall
 
-Download or open the latest release of wftech and run `sudo ./uninstall`
+## Linux
+Download or open the latest release of wftech and run `./wfetch-util -u` **(NOT IN ROOT)** and follow the wizzard.
+
+## Windows and Macos
+Just delete the directory wfetch is in :) (The pros of portable programs!)
 
 # FAQ
 
 ## How do I get an Weather API key?
 
-First, go to the (Weather API)[https://www.weatherapi.com/] website and then sign up. When finished creating an account, login then copy your api key.
+First, go to the [Weather API](https://www.weatherapi.com/) website and then sign up. When finished creating an account, login then copy your api key.
 Make sure to paste that api key to setup.
 
 ## Why don't you provide an api key?
@@ -32,10 +44,10 @@ All of these instructions work on Linux, Windows, and Macos.
     You guys get a bash script that builds everything! Your welcome :)
 </details>
 
-### Wfetch
+## Wfetch
 `pyinstaller -F main.py -n wfetch`
 
-### Wfetch-util
+## Wfetch-util
 ` pyinstaller -F wfetch-util.py -n wfetch-util`
 
 # To do
