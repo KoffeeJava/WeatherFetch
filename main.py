@@ -8,6 +8,7 @@ import toml
 import requests
 from colorist import ColorHex
 import chk_id
+from datetime import datetime
 
 try:
     arg = sys.argv[1]
@@ -22,7 +23,7 @@ cold_blue = ColorHex("#3f42ff")
 debug_orange = ColorHex("#ffbc21")
 
 if arg == "" or arg == "--debug":
-    print(f"\033[1m{wf_orange}WeatherFetch KoffeeWare 2025{wf_orange.OFF}")
+    print(f"\033[1m{wf_orange}WeatherFetch KoffeeJava 2025{wf_orange.OFF}")
     try:
         with open(os.path.expanduser("~/.local/share/Wfetch/config.toml")) as f:
             content = toml.load(f)
@@ -32,6 +33,8 @@ if arg == "" or arg == "--debug":
             if arg == "--debug":
                 print(f"\033[1m{debug_orange}Read API key as: {api_key}{debug_orange.OFF}")
                 print(f"\033[1m{debug_orange}Read city as: {city}{debug_orange.OFF}")
+                print(f"\033[1m{debug_orange}Current Time: {int(datetime.now().strftime("%H%M"))}{debug_orange.OFF}")
+
     except:
         print(f"\033[1m{error_red}The config file was not found! Please run the wfetch-util setup.\033[0m")
         sys.exit(1)
@@ -146,7 +149,7 @@ if arg == "" or arg == "--debug":
     else:
         print('Error fetching weather data!')
 if arg == "--help" or arg == "-h":
-    print(f"\033[1m{wf_orange}Wfetch 2025 KoffeeWare{wf_orange.OFF}")
+    print(f"\033[1m{wf_orange}Wfetch 2025 KoffeeJava{wf_orange.OFF}")
     print("Usage: Wfetch [options]\n")
     print("-h, --help           This help page.")
     print("-v, --version           Show version of Wfetch.")

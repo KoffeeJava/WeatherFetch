@@ -3,6 +3,8 @@ import sys
 from dialog import Dialog
 import shutil
 
+print("Wfetch-Util by KoffeeJava 2025.")
+
 d = Dialog(dialog="dialog")
 
 try:
