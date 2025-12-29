@@ -10,9 +10,6 @@ else:
 
 gray = ColorHex('#212121')
 yellow = ColorHex('#ffbf00')
-orange = ColorHex("#ee8b00")
-gray = ColorHex('#212121')
-yellow = ColorHex('#ffbf00')
 
 def clear():
     print(f"""{orange} ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
