@@ -1,7 +1,0 @@
-# This disp contains weather for the 'mericans (or... other countries that use customary units).
-
-1 = "Live Temperature: {temp_f}°"
-2 = "Feels like: {feels_temp_f}°"
-3 = "Wind Speed: {wind_mph}"
-4 = "Humidity: {humidity}{bold}{orange}%{orange_OFF}{bold_OFF}"
-5 = "Description: {description}"
