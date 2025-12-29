@@ -36,14 +36,14 @@ if arg == "" or arg == "--debug":
                 print(f"\033[1m{debug_orange}Current Time: {int(datetime.now().strftime("%H%M"))}{debug_orange.OFF}")
 
     except:
-        print(f"\033[1m{error_red}The config file was not found! Please run the wfetch-util setup.\033[0m")
+        print(f"\033[1m{error_red}The config file was not found! Please run WM-setup\033[0m")
         sys.exit(1)
 
     try:
             with open(os.path.expanduser('disp.toml'), 'r') as f:
                 order = toml.load(f)
     except:
-            print(f"\033[1m{hot_red}Your Config file for displaying information is missing!\nCreate one by copy one of the examples into the directory wfetch is in.{hot_red.OFF}\033[0m")
+            print(f"\033[1m{hot_red}Your Config file for displaying information is missing!\nCreate one by running WM-setup{hot_red.OFF}\033[0m")
             sys.exit(1)
 
     fetch_url = f"http://api.weatherapi.com/v1/current.json?q={city}&key={api_key}"
