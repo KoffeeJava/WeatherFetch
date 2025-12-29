@@ -3,8 +3,6 @@ from datetime import datetime
 
 time = int(datetime.now().strftime("%H%M"))
 
-print(time)
-
 if time > 1200:
     orange = ColorHex("#505050")
 else:
