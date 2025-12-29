@@ -1,8 +1,4 @@
-# Main file of wfetch. You can kinda read it.
-
-import math
 import os
-import shutil
 import sys
 import toml
 import requests
@@ -43,7 +39,7 @@ if arg == "" or arg == "--debug":
             with open(os.path.expanduser('~/.local/share/Wfetch/disp.toml'), 'r') as f:
                 order = toml.load(f)
     except:
-            print(f"\033[1m{hot_red}Your Config file for displaying information is missing!\nCreate one by copy one of the examples into ~/.local/Wfetch/{hot_red.OFF}\033[0m")
+            print(f"\033[1m{hot_red}Your Config file for displaying information is missing!\nPlease create one or run ./wfetch-util -s{hot_red.OFF}\033[0m")
             sys.exit(1)
 
     fetch_url = f"http://api.weatherapi.com/v1/current.json?q={city}&key={api_key}"
