@@ -64,6 +64,8 @@ if arg == "" or arg == "--debug":
         cwind = data['current']['wind_mph']
         mwind = data['current']['wind_kph']
         humidity = data['current']['humidity']
+        vism = data['current']['vis_miles']
+        visk = data['current']['vis_km']
         id = data['current']['condition']['code']
 
         if temp > 85:
@@ -125,6 +127,8 @@ if arg == "" or arg == "--debug":
                 temp_f=temp_format, 
                 temp_c=tempm_format, 
                 description=desc_format,
+                visibility_m=vism,
+                visibility_km=visk,
                 bold="\033[1m".format(), # colorist gave me double lines instead of bold. WHY!!!!
                 blink="\033[5m".format(),
                 reset="\033[0m".format(),
