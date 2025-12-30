@@ -60,12 +60,18 @@ if arg == "" or arg == "--debug":
         temp = data['current']['temp_f']
         tempm = data['current']['temp_c']
         desc = data['current']['condition']['text']
-        press = data['current']['pressure_in']
+        pressin = data['current']['pressure_in']
+        pressmb = data['current']['pressure_mb']
         cwind = data['current']['wind_mph']
         mwind = data['current']['wind_kph']
         humidity = data['current']['humidity']
         vism = data['current']['vis_miles']
         visk = data['current']['vis_km']
+        heatindex_f = data['current']['heatindex_f']
+        heatindex_c = data['current']['heatindex_c']
+        windchill_f = data['current']['windchill_f']
+        windchill_c = data['current']['windchill_c']
+
         id = data['current']['condition']['code']
 
         if temp > 85:
@@ -132,10 +138,15 @@ if arg == "" or arg == "--debug":
                 bold="\033[1m".format(), # colorist gave me double lines instead of bold. WHY!!!!
                 blink="\033[5m".format(),
                 reset="\033[0m".format(),
-                pressure=press, 
+                pressure_in=pressin, 
+                pressure_mb=pressmb,
                 wind_mph=cwind_format, 
                 wind_kph=mwind_format,
                 humidity=humidity,
+                heatindex_f=heatindex_f,
+                heatindex_c=heatindex_c,
+                windchill_f=windchill_f,
+                windchill_c=windchill_c,
                 orange=wf_orange,
                 orange_OFF=wf_orange.OFF,
                 red=hot_red,
