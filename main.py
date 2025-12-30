@@ -25,6 +25,7 @@ if arg == "" or arg == "--debug":
             content = toml.load(f)
             api_key = content['api']
             city = content['city']
+            image = content['image']
 
             if arg == "--debug":
                 print(f"\033[1m{debug_orange}Read API key as: {api_key}{debug_orange.OFF}")
@@ -118,7 +119,11 @@ if arg == "" or arg == "--debug":
 
         desc_format = f"{desc}"
 
-        chk_id.id_to_icon(id)
+        if image == "True":
+            os.system(f"wget https://{data['current']['condition']['icon'][2:]} -qc -O icon.png")
+            os.system("viu icon.png -t")
+        else:
+            chk_id.id_to_icon(id)
 
         linenum = 1
 

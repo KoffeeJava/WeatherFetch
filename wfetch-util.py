@@ -65,6 +65,11 @@ if arg == "-s" or arg == "--setup":
                 with open(os.path.expanduser("~/.local/share/Wfetch/config.toml"), "w") as f:
                     f.write(f"api = \"{api}\"")
                     f.write(f"\ncity = \"{city}\"")
+                    if d.yesno("Do you want to test out image mode? It will display an image instaid of a ascii art icon.\n(Requires viu to be installed!)") == d.OK:
+                        f.write(f"\nimage = \"True\"")
+                    else:
+                        f.write(f"\nimage = \"False\"")
+                
             
                 code, tag = d.menu("Please select which unit you want to use. NOTE: You can customise how everything is shown!",
                        choices=[("(1)", "Customary"),
