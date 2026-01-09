@@ -1,6 +1,9 @@
 # WeatherFetch - A weather app for your terminal.
 WeatherFetch is an application that shows the live temperature, air pressure, wind speed, humidity, and weather descriptions!
 
+## WARNING!
+The project is not affiliated with Nam4ik's WeatherFetch. You can see their project [here](https://github.com/Nam4ik/WeatherFetch)
+
 # How to install and setup
 
 ## Linux
