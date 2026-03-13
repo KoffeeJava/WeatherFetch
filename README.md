@@ -1,3 +1,9 @@
+# Archived!
+
+Since 3/12/26 I have archived this project because I'm rewriting this in crystal!
+
+You can view it [here](https://github.com/KoffeeJava/wfetch-cr)
+
 # WeatherFetch - A weather app for your terminal.
 WeatherFetch is an application that shows the live temperature, air pressure, wind speed, humidity, and weather descriptions!
 
